@@ -1,6 +1,4 @@
 import { experimental_extendTheme as extendTheme } from '@mui/material/styles'
-import { deepOrange, teal, orange, cyan } from '@mui/material/colors'
-import { BorderColor, Height } from '@mui/icons-material'
 
 // Create a theme instance.
 const theme = extendTheme({
@@ -9,20 +7,7 @@ const theme = extendTheme({
     boardBarHeight: '60px'
   },
   colorSchemes: {
-    light: {
-      palette: {
-        primary: teal,
-        secondary: deepOrange
-      }
-    },
-    dark: {
-      palette: {
-        palette: {
-          primary: cyan,
-          secondary: orange
-        }
-      }
-    }
+
   },
   components: {
     MuiCssBaseline: {
@@ -33,14 +18,14 @@ const theme = extendTheme({
           // * apply to all the scroll bar
           '*::-webkit-scrollbar': {
             width: '8px',
-            height: '8px'
+            height: '5px'
           },
           '*::-webkit-scrollbar-thumb': {
-            backgroundColor: '#bdc3c7',
+            backgroundColor: '#dcdde1',
             borderRadius: '8px'
           },
           '*::-webkit-scrollbar-thumb:hover' :{
-            backgroundColor: '#00b894'
+            backgroundColor: '#FFFFFF'
           }
         }
       }
@@ -50,8 +35,9 @@ const theme = extendTheme({
       styleOverrides: {
         // Name of the slot
         root: {
-          // Some CSS
-          textTransform: 'none'
+          borderWidth: '0.5px',
+          textTransform: 'none',
+          '&: hover': { borderWidth: 1 }
         }
       }
     },
@@ -67,34 +53,28 @@ const theme = extendTheme({
     MuiSvgIcon: {
       styleOverrides: {
         // Name of the slot
-        root: ({ theme }) => ({
+        root: {
           '&.appBarIcon': {
-            color: theme.palette.primary.main // Màu chính từ chủ đề
+            color: 'white' // Màu chính từ chủ đề
           }
-        })
+        }
       }
     },
     MuiOutlinedInput: {
       styleOverrides: {
         // Name of the slot
-        root: ({ theme }) => ({
-          color: theme.palette.primary.main,
+        root: {
           fontSize: '0.875rem',
           '.MuiOutlinedInput-notchedOutline':{
-            borderColor: theme.palette.primary.light
           },
           '&:hover': {
             '.MuiOutlinedInput-notchedOutline':{
-              borderColor: theme.palette.primary.main
             }
           },
-          '& fieldset': {
-            // '.MuiOutlinedInput-notchedOutline':{
-            //   borderColor: 'black'
-            // }
-            borderWidth: '1px !important'
-          }
-        })
+          '& fieldset': { borderWidth: '0.5px !important' },
+          '&:hover fieldset': { borderWidth: '2px !important' },
+          '&.Mui-focused fieldset': { borderWidth: '2px !important' }
+        }
       }
     }
   }
