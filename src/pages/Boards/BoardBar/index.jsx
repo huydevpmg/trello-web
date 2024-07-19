@@ -101,7 +101,10 @@ function BoardBar() {
               width: 30,
               height: 30,
               fontSize: 12,
-              border: 'none'
+              border: 'none',
+              color: 'white',
+              cursor: 'pointer',
+              '&:first-of-type': { bgcolor: '#535c68' }
             }
           }}>
           <Tooltip title= "huypmg16">
